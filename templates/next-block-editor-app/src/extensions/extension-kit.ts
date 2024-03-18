@@ -5,8 +5,6 @@ import { HocuspocusProvider } from '@hocuspocus/provider'
 import { API } from '@/lib/api'
 
 import {
-  AiWriter,
-  AiImage,
   BlockquoteFigure,
   CharacterCount,
   Color,
@@ -63,14 +61,6 @@ export const ExtensionKit = ({ provider, userId, userName = 'Maxi' }: ExtensionK
   TaskList,
   TaskItem.configure({
     nested: true,
-  }),
-  AiWriter.configure({
-    authorId: userId,
-    authorName: userName,
-  }),
-  AiImage.configure({
-    authorId: userId,
-    authorName: userName,
   }),
   Column,
   Selection,

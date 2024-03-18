@@ -1,7 +1,6 @@
 import { useContext, useEffect, useMemo, useState } from 'react'
 
 import { Editor, useEditor } from '@tiptap/react'
-import Ai from '@tiptap-pro/extension-ai'
 import Collaboration from '@tiptap/extension-collaboration'
 import CollaborationCursor from '@tiptap/extension-collaboration-cursor'
 import { TiptapCollabProvider, WebSocketStatus } from '@hocuspocus/provider'
@@ -15,9 +14,6 @@ import { EditorUser } from '../components/BlockEditor/types'
 import { useSidebar } from './useSidebar'
 import { initialContent } from '@/lib/data/initialContent'
 
-const TIPTAP_AI_APP_ID = process.env.NEXT_PUBLIC_TIPTAP_AI_APP_ID
-const TIPTAP_AI_BASE_URL = process.env.NEXT_PUBLIC_TIPTAP_AI_BASE_URL || 'https://api.tiptap.dev/v1/ai'
-
 declare global {
   interface Window {
     editor: Editor | null
@@ -25,17 +21,14 @@ declare global {
 }
 
 export const useBlockEditor = ({
-  aiToken,
   ydoc,
   provider,
 }: {
-  aiToken: string
   ydoc: Y.Doc
   provider?: TiptapCollabProvider | null | undefined
 }) => {
   const leftSidebar = useSidebar()
   const [collabState, setCollabState] = useState<WebSocketStatus>(WebSocketStatus.Connecting)
-  const { setIsAiLoading, setAiError } = useContext(EditorContext)
 
   const editor = useEditor(
     {
@@ -59,24 +52,6 @@ export const useBlockEditor = ({
           user: {
             name: randomElement(userNames),
             color: randomElement(userColors),
-          },
-        }),
-        Ai.configure({
-          appId: TIPTAP_AI_APP_ID,
-          token: aiToken,
-          baseUrl: TIPTAP_AI_BASE_URL,
-          autocompletion: true,
-          onLoading: () => {
-            setIsAiLoading(true)
-            setAiError(null)
-          },
-          onSuccess: () => {
-            setIsAiLoading(false)
-            setAiError(null)
-          },
-          onError: error => {
-            setIsAiLoading(false)
-            setAiError(error.message)
           },
         }),
       ],

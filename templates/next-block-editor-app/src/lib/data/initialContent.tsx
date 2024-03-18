@@ -314,37 +314,6 @@ export const initialContent = {
             },
           ],
         },
-        {
-          type: 'listItem',
-          content: [
-            {
-              type: 'paragraph',
-              attrs: {
-                class: null,
-                textAlign: 'left',
-              },
-              content: [
-                {
-                  type: 'text',
-                  text: 'AI implementation with text and image generation and auto completion via the ',
-                },
-                {
-                  type: 'text',
-                  marks: [
-                    {
-                      type: 'code',
-                    },
-                  ],
-                  text: 'TAB',
-                },
-                {
-                  type: 'text',
-                  text: ' key.',
-                },
-              ],
-            },
-          ],
-        },
       ],
     },
     {
@@ -415,24 +384,6 @@ export const initialContent = {
     {
       type: 'bulletList',
       content: [
-        {
-          type: 'listItem',
-          content: [
-            {
-              type: 'paragraph',
-              attrs: {
-                class: null,
-                textAlign: 'left',
-              },
-              content: [
-                {
-                  type: 'text',
-                  text: '@tiptap-pro/extension-ai',
-                },
-              ],
-            },
-          ],
-        },
         {
           type: 'listItem',
           content: [

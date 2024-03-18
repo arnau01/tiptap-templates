@@ -12,11 +12,6 @@ import { Surface } from '@/components/ui/Surface'
 import { Toolbar } from '@/components/ui/Toolbar'
 import { Icon } from '@/components/ui/Icon'
 
-export interface AiState {
-  isAiLoading: boolean
-  aiError?: string | null
-}
-
 const useDarkmode = () => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(
     typeof window !== 'undefined' ? window.matchMedia('(prefers-color-scheme: dark)').matches : false,
@@ -49,7 +44,6 @@ export default function Document({ params }: { params: { room: string } }) {
   const { isDarkMode, darkMode, lightMode } = useDarkmode()
   const [provider, setProvider] = useState<TiptapCollabProvider | null>(null)
   const [collabToken, setCollabToken] = useState<string | null>(null)
-  const [aiToken, setAiToken] = useState<string | null>(null)
   const searchParams = useSearchParams()
 
   const hasCollab = parseInt(searchParams.get('noCollab') as string) !== 1
@@ -77,27 +71,6 @@ export default function Document({ params }: { params: { room: string } }) {
     dataFetch()
   }, [])
 
-  useEffect(() => {
-    // fetch data
-    const dataFetch = async () => {
-      const data = await (
-        await fetch('/api/ai', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-      ).json()
-
-      const { token } = data
-
-      // set state when the data received
-      setAiToken(token)
-    }
-
-    dataFetch()
-  }, [])
-
   const ydoc = useMemo(() => new Y.Doc(), [])
 
   useLayoutEffect(() => {
@@ -113,7 +86,7 @@ export default function Document({ params }: { params: { room: string } }) {
     }
   }, [setProvider, collabToken, ydoc, room, hasCollab])
 
-  if ((hasCollab && (!collabToken || !provider)) || !aiToken) return
+  if (hasCollab && (!collabToken || !provider)) return
 
   const DarkModeSwitcher = createPortal(
     <Surface className="flex items-center gap-1 fixed bottom-6 right-6 z-[99999] p-1">
@@ -130,7 +103,7 @@ export default function Document({ params }: { params: { room: string } }) {
   return (
     <>
       {DarkModeSwitcher}
-      <BlockEditor aiToken={aiToken} hasCollab={hasCollab} ydoc={ydoc} provider={provider} />
+      <BlockEditor hasCollab={hasCollab} ydoc={ydoc} provider={provider} />
     </>
   )
 }
