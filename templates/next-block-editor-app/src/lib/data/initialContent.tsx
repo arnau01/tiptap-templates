@@ -16,7 +16,7 @@ export const initialContent = {
         },
         {
           type: 'text',
-          text: ' Next.js + Tiptap Block Editor Template 12',
+          text: ' Next.js + Tiptap Block Editor Template',
         },
       ],
     },
