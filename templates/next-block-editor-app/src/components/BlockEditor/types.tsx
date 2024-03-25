@@ -1,11 +1,11 @@
 import { TiptapCollabProvider } from '@hocuspocus/provider'
 import { Language } from '@tiptap-pro/extension-ai'
-import * as Y from 'yjs'
+import type { Doc as YDoc } from 'yjs'
 
 export interface TiptapProps {
   aiToken: string
   hasCollab: boolean
-  ydoc: Y.Doc
+  ydoc: YDoc
   provider?: TiptapCollabProvider | null | undefined
 }
 

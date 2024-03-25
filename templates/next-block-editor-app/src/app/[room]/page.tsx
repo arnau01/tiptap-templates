@@ -4,7 +4,7 @@ import { TiptapCollabProvider } from '@hocuspocus/provider'
 import 'iframe-resizer/js/iframeResizer.contentWindow'
 import { useSearchParams } from 'next/navigation'
 import { useCallback, useEffect, useLayoutEffect, useMemo, useState } from 'react'
-import * as Y from 'yjs'
+import { Doc as YDoc } from 'yjs'
 
 import { BlockEditor } from '@/components/BlockEditor'
 import { createPortal } from 'react-dom'
@@ -98,7 +98,7 @@ export default function Document({ params }: { params: { room: string } }) {
     dataFetch()
   }, [])
 
-  const ydoc = useMemo(() => new Y.Doc(), [])
+  const ydoc = useMemo(() => new YDoc(), [])
 
   useLayoutEffect(() => {
     if (hasCollab && collabToken) {

@@ -5,7 +5,7 @@ import Ai from '@tiptap-pro/extension-ai'
 import Collaboration from '@tiptap/extension-collaboration'
 import CollaborationCursor from '@tiptap/extension-collaboration-cursor'
 import { TiptapCollabProvider, WebSocketStatus } from '@hocuspocus/provider'
-import * as Y from 'yjs'
+import type { Doc as YDoc } from 'yjs'
 
 import { ExtensionKit } from '@/extensions/extension-kit'
 import { EditorContext } from '../context/EditorContext'
@@ -30,7 +30,7 @@ export const useBlockEditor = ({
   provider,
 }: {
   aiToken: string
-  ydoc: Y.Doc
+  ydoc: YDoc
   provider?: TiptapCollabProvider | null | undefined
 }) => {
   const leftSidebar = useSidebar()
