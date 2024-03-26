@@ -1,9 +1,9 @@
 import { TiptapCollabProvider } from '@hocuspocus/provider'
-import * as Y from 'yjs'
+import type { Doc as YDoc } from 'yjs'
 
 export interface TiptapProps {
   hasCollab: boolean
-  ydoc: Y.Doc
+  ydoc: YDoc
   provider?: TiptapCollabProvider | null | undefined
 }
 

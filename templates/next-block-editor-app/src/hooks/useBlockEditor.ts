@@ -1,13 +1,12 @@
-import { useContext, useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import { Editor, useEditor } from '@tiptap/react'
 import Collaboration from '@tiptap/extension-collaboration'
 import CollaborationCursor from '@tiptap/extension-collaboration-cursor'
 import { TiptapCollabProvider, WebSocketStatus } from '@hocuspocus/provider'
-import * as Y from 'yjs'
+import type { Doc as YDoc } from 'yjs'
 
 import { ExtensionKit } from '@/extensions/extension-kit'
-import { EditorContext } from '../context/EditorContext'
 import { userColors, userNames } from '../lib/constants'
 import { randomElement } from '../lib/utils'
 import { EditorUser } from '../components/BlockEditor/types'
@@ -24,7 +23,7 @@ export const useBlockEditor = ({
   ydoc,
   provider,
 }: {
-  ydoc: Y.Doc
+  ydoc: YDoc
   provider?: TiptapCollabProvider | null | undefined
 }) => {
   const leftSidebar = useSidebar()
