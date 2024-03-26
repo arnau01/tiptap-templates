@@ -64,7 +64,7 @@ export const TextMenu = ({ editor }: TextMenuProps) => {
         </MemoButton>
         <MemoButton
           tooltip="Strikehrough"
-          tooltipShortcut={['Mod', 'X']}
+          tooltipShortcut={['Mod', 'Shift', 'S']}
           onClick={commands.onStrike}
           active={states.isStrike}
         >
