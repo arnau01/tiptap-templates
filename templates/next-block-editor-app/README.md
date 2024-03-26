@@ -1,6 +1,7 @@
 # Next BlockEditor App
 
 ## Installation & Usage
+
 To begin, clone the tiptap-templates repository from GitHub using the following command:
 
 ```bash
@@ -27,8 +28,7 @@ npm run dev
 ```
 
 > [!Important]
-> For users without access to Tiptap's paid [Content AI](https://tiptap.dev/product/content-ai) features, you will need to remove or exclude the Content AI extension from this template. This template is designed to showcase UI possibilities and should be adapted to fit your project's requirements and access to [Tiptap features](https://tiptap.dev/pricing).
-
+> If you do not have access to Tiptap's paid [Content AI](https://tiptap.dev/product/content-ai) features, you will need to remove or exclude the Content AI extension from this template. For your convenience, we have prepared the `free-version` branch that is already configured without the paid extension. This template is designed to showcase UI possibilities and should be adapted to fit your project's requirements and access to [Tiptap features](https://tiptap.dev/pricing).
 
 ## Usage Guidelines
 
