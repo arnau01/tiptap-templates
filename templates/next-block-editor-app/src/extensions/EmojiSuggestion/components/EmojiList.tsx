@@ -1,4 +1,4 @@
-import { EmojiItem } from '@tiptap-pro/extension-emoji'
+// import { EmojiItem } from '@tiptap-pro/extension-emoji'
 import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useState } from 'react'
 
 import { Button } from '@/components/ui/Button'
@@ -84,7 +84,7 @@ const EmojiList = forwardRef((props: EmojiListProps, ref) => {
 
   return (
     <Panel className="overflow-y-auto max-w-[18rem] max-h-[18rem]">
-      {props.items.map((item: EmojiItem, index: number) => (
+      {props.items.map((item: any, index: number) => (
         <Button
           active={index === selectedIndex}
           variant="ghost"

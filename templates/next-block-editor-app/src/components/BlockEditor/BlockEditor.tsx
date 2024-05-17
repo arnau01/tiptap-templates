@@ -49,7 +49,7 @@ export const BlockEditor = ({ ydoc, provider }: TiptapProps) => {
             toggleSidebar={leftSidebar.toggle}
           />
           <EditorContent editor={editor} ref={editorRef} className="flex-1 overflow-y-auto" />
-          <ContentItemMenu editor={editor} />
+          {/* <ContentItemMenu editor={editor} /> */}
           <LinkMenu editor={editor} appendTo={menuContainerRef} />
           <TextMenu editor={editor} />
           <ColumnsMenu editor={editor} appendTo={menuContainerRef} />
